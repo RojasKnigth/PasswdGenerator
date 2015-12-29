@@ -1,0 +1,133 @@
+#!/usr/bin/python                                                                #
+# -*- coding: utf-8 -*-                                                          #
+#                                                                                #
+#                                                                                #
+#                                      @RojasKnight                              #
+###################                                                              #
+import itertools  #                                                              #
+import sys        #                                                              #
+import os         #                                                              #
+##################################################################################
+#
+# long characters >>> 11
+#_author_ = 'Danny Rojas (Rojas Knight)'
+
+def clear():
+
+    if "linux" in sys.platform:
+        os.system("clear")
+    elif "Wid" in sys.platform:
+        os.system("cls")
+    else:
+        pass   
+def menu():
+    color = {"blue": "\033[94m", "red": "\033[91m", "green": "\033[92m", "defecto": "\033[0m", "yellow": "\033[93m"}
+    print "\t\t  +=======================================+"
+    print "\t\t  |.........." + color["blue"] + "Generator Passwd"  + color["defecto"] + ".............|"
+    print "\t\t  +---------------------------------------+"
+    print "\t\t  |" + color["red"] + "#Author: @RojasKnigth" + color["defecto"] +"                  |" 
+    print "\t\t  |" + color["red"] + "#Contact: www.fb.com/RojasKnigth" + color["defecto"] + "       |"
+    print "\t\t  |" + color["red"] + "#Date: 17/12/2015 " + color["defecto"] + "                     |"
+    print "\t\t  |" + color["red"] + "#This tool is made for pentesting." + color["defecto"] +"     |"
+    print "\t\t  |" + color["red"] + "#Happy Hacking" + color["defecto"] +"                         |"
+    print "\t\t  +=======================================+"
+    print "\t\t  |............Generator Passwd...........|"
+    print "\t\t  +---------------------------------------+"
+    print ""
+
+clear()
+menu()
+
+def main():
+    color = {"blue": "\033[94m", "red": "\033[91m", "green": "\033[92m", "defecto": "\033[0m", "yellow": "\033[93m"}
+    try:    
+        print("Give me the characters")
+        char = raw_input("> ")
+
+        print("Give the range")
+        longitud = int(input("> "))
+    
+
+        if longitud <= len(char) and longitud > 1:
+            arreglo = list(char)
+            combinaciones = itertools.product(arreglo , repeat = longitud)
+            combinaciones = list(combinaciones)
+
+            archivo = open("diccionario.txt", "a")
+
+            if longitud == 1:
+                 for i in combinaciones:
+                    text = i[0]
+                    print text
+                    archivo.write(text + "\n")
+
+            elif longitud == 2:
+                 for i in combinaciones:
+                    text =  i[0] + i[1]
+                    print text
+                    archivo.write(text + "\n")
+                   
+            elif longitud == 3:
+                 for i in combinaciones:
+                    text =  i[0] + i[1] + i[2]
+                    print text
+                    archivo.write(text + "\n")
+
+            elif longitud == 4:
+                for i in combinaciones:
+                    text =  i[0] + i[1] + i[2] + i[3]
+                    print text
+                    archivo.write(text + "\n")
+
+            elif longitud == 5:
+                 for i in combinaciones:
+                    text =  i[0] + i[1] + i[2] + i[3] + i[4]
+                    print text
+                    archivo.write(text + "\n")
+
+            elif longitud == 6:
+                 for i in combinaciones:
+                    text =  i[0] + i[1] + i[2] + i[3] + i[4] + i[5]
+                    print text
+                    archivo.write(text + "\n")
+
+            elif longitud == 7:
+                 for i in combinaciones:
+                    text =  i[0] + i[1] + i[2] + i[3] + i[4] + i[5] + i[6]
+                    print text
+                    archivo.write(text + "\n")
+
+            elif longitud == 8:
+                 for i in combinaciones:
+                    text =  i[0] + i[1] + i[2] + i[3] + i[4] + i[5] + i[6] + i[7]
+                    print text
+                    archivo.write(text + "\n")
+
+            elif longitud == 9:
+                 for i in combinaciones:
+                    text =  i[0] + i[1] + i[2] + i[3] + i[4] + i[5] + i[6] + i[7] + i[8]
+                    print text
+                    archivo.write(text + "\n")
+
+            elif longitud == 10:
+                 for i in combinaciones:
+                    text =  i[0] + i[1] + i[2] + i[3] + i[4] + i[5] + i[6] + i[7] + i[8] + i[9]
+                    print text
+                    archivo.write(text + "\n")
+
+            elif longitud == 11:
+                for i in combinaciones:
+                    text =  i[0] + i[1] + i[2] + i[3] + i[4] + i[5] + i[6] + i[7] + i[8] + i[9] + i[10]
+                    print text
+                    archivo.write(text + "\n")
+
+            print(color["blue"] + "Saved, " + str(os.getcwd()) + "/diccionario.txt")
+            archivo.close()
+        else:
+            print color["red"] + "[-] Error, Try Again :("
+    except Exception, Error:
+        print color["red"] + "[-]Error Writing :( >>>" + str(Error)
+if __name__ == '__main__':
+    main()
+
+        
